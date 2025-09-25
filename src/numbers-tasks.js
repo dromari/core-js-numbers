@@ -256,8 +256,10 @@ function getCube(num) {
  *   3  => 2
  *   10 => 55
  */
-function getFibonacciNumber(/* index */) {
-  throw new Error('Not implemented');
+function getFibonacciNumber(index) {
+  return index <= 1
+    ? index
+    : getFibonacciNumber(index - 1) + getFibonacciNumber(index - 2);
 }
 
 /**
@@ -580,8 +582,11 @@ function getMaxNumber(firstNumber, secondNumber) {
  * -5, 0 => -5 | -4 | -3 | -2 | -1 | 0
  * -1, 1 => -1 | 0 | 1
  */
-function getRandomInteger(/* min, max */) {
-  throw new Error('Not implemented');
+function getRandomInteger(min, max) {
+  return (
+    Math.floor(Math.random() * (Math.floor(max) - Math.ceil(min) + 1)) +
+    Math.ceil(min)
+  );
 }
 
 /**
@@ -611,8 +616,14 @@ function getHypotenuse(a, b) {
  * 10 => 5
  * 15 => 8
  */
-function getCountOfOddNumbers(/* number */) {
-  throw new Error('Not implemented');
+function getCountOfOddNumbers(number) {
+  let counterOdd = 0;
+  for (let i = 0; i <= Math.abs(number); i += 1) {
+    if (i % 2 !== 0) {
+      counterOdd += 1;
+    }
+  }
+  return counterOdd;
 }
 
 module.exports = {
